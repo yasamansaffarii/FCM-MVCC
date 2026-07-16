@@ -19,8 +19,7 @@
 
 import re
 import numpy as np
-import pandas as pd
-import matplotlib
+
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -28,6 +27,9 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy import stats
 import docx
+
+import pandas as pd
+import matplotlib
 
 plt.rcParams["axes.unicode_minus"] = False
 plt.rcParams["font.size"] = 12
@@ -457,8 +459,9 @@ for i in range(n):
 # is placed separately, below the figure, to visually separate the
 # "breakdown point" from the layered structure.
 pos = {}
-layer_radius = {1: 1.6, 2: 3.4, 3: 5.2, 4: 7.0, 5: 8.8}
+
 sub_ring_offset = 1.1  # distance of the sub-theme ring from its own layer's ring
+layer_radius = {1: 1.6, 2: 3.4, 3: 5.2, 4: 7.0, 5: 8.8}
 
 pos["L1"] = (0.0, 0.0)  # central core, exactly at the center
 for lyr in range(2, 6):
