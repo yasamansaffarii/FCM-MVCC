@@ -144,7 +144,7 @@ If you use this code in your research, please cite the original paper (once publ
   author = {Mohammad Pedrami and Yasaman Saffari},
   title  = {A Multilayer Vulnerability and Cascading Collapse (MVCC) Model in Educational Robotics (STEM) Interventions},
   journal= {},
-  year   = {}
+  year   = {2026}
 }
 ```
 
