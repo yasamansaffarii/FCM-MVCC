@@ -7,7 +7,7 @@
 
 
  When running the UPLOAD cell, upload the following file:
-        - جدول_مضامین.docx   (must contain both tables: the frequency
+        - concepts.docx   (must contain both tables: the frequency
           summary table + the comprehensive concepts table)
  Run the remaining cells in order. All tables (CSV) and figures (PNG/PDF)
  will be saved in the current folder and are downloadable.
@@ -48,7 +48,7 @@ def save_fig(fig, name):
 #   from google.colab import files
 #   uploaded = files.upload()
 #
-THEMES_DOCX = "جدول مضامین.docx"   # contains the summary table (Table 0) and the full table (Table 1)
+THEMES_DOCX = "concepts.docx"   # contains the summary table (Table 0) and the full table (Table 1)
 
 pdig = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
 def to_num(s):
