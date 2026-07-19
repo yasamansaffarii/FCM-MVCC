@@ -7,7 +7,7 @@
 
 
  When running the UPLOAD cell, upload the following file:
-        - concepts.docx   (must contain both tables: the frequency
+        - جدول_مضامین.docx   (must contain both tables: the frequency
           summary table + the comprehensive concepts table)
  Run the remaining cells in order. All tables (CSV) and figures (PNG/PDF)
  will be saved in the current folder and are downloadable.
@@ -19,7 +19,8 @@
 
 import re
 import numpy as np
-
+import pandas as pd
+import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import networkx as nx
@@ -27,9 +28,6 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 from scipy import stats
 import docx
-
-import pandas as pd
-import matplotlib
 
 plt.rcParams["axes.unicode_minus"] = False
 plt.rcParams["font.size"] = 12
@@ -50,7 +48,7 @@ def save_fig(fig, name):
 #   from google.colab import files
 #   uploaded = files.upload()
 #
-THEMES_DOCX = "concepts.docx"   # contains the summary table (Table 0) and the full table (Table 1)
+THEMES_DOCX = "جدول مضامین.docx"   # contains the summary table (Table 0) and the full table (Table 1)
 
 pdig = str.maketrans("۰۱۲۳۴۵۶۷۸۹", "0123456789")
 def to_num(s):
@@ -411,15 +409,15 @@ LAYER_LABELS_EN = {
 # the common/standard English translations for all twelve documented
 # sub-themes are provided below, so this fallback should rarely trigger.
 SUB_LABELS_EN = {
-    "پیچیدگی‌ها، نقص‌ها و شکنندگی فناورانه": "Technological Fragility",
-    "صلاحیت و آمادگی ناکافی معلمان": "Teacher Competency",
-    "محدودیت‌های زمانی و فشار ساختاری": "Time Constraints",
-    "محدودیت‌های طراحی آموزشی و برنامه درسی": "Instructional Design Gaps",
-    "نابرابری در دانش و تجربه پیشین یادگیرندگان": "Prior Knowledge Gap",
-    "موانع زمینه‌ای، فرهنگی و سیاستی": "Cultural & Policy Barriers",
-    "شکاف‌های جنسیتی و نابرابری در مشارکت": "Gender Participation Gap",
-    "کمبود منابع، زیرساخت و فشارهای مالی": "Resource & Infrastructure Scarcity",
-    "نقاط ضعف روش‌شناختی و چالش‌های سنجش": "Methodological & Assessment Issues",
+    "پیچیدگی‌ها، نقص‌ها و شکنندگی فناورانه": "Technological Complexity,\nFaults & Fragility",
+    "صلاحیت و آمادگی ناکافی معلمان": "Inadequate Teacher\nCompetence & Readiness",
+    "محدودیت‌های زمانی و فشار ساختاری": "Time Constraints &\nStructural Pressure",
+    "محدودیت‌های طراحی آموزشی و برنامه درسی": "Instructional Design &\nCurriculum Limitations",
+    "نابرابری در دانش و تجربه پیشین یادگیرندگان": "Prior Knowledge &\nExperience Inequality",
+    "موانع زمینه‌ای، فرهنگی و سیاستی": "Contextual, Cultural\n& Policy Barriers",
+    "شکاف‌های جنسیتی و نابرابری در مشارکت": "Gender Gaps &\nParticipation Inequality",
+    "کمبود منابع، زیرساخت و فشارهای مالی": "Resource, Infrastructure\n& Financial Constraints",
+    "نقاط ضعف روش‌شناختی و چالش‌های سنجش": "Methodological Weaknesses\n& Assessment Challenges",
     # Common/standard translations for the remaining layer-1 and layer-2
     # sub-themes typically found in this kind of meta-synthesis; these keys
     # match the most common wording, but check against your table (Table
@@ -428,7 +426,12 @@ SUB_LABELS_EN = {
     "بدفهمی‌های مفهومی و شناختی": "Conceptual Misconceptions",
     "کاهش انگیزه و اضطراب یادگیرنده": "Learner Anxiety & Motivation Loss",
     "انزوای اجتماعی و ضعف کار گروهی": "Social Isolation & Weak Teamwork",
+    "موانع شناختی و فراشناختی یادگیرنده": "Learner Cognitive &\nMetacognitive Barriers",
+    "موانع روانشناختی، انگیزشی و نگرشی": "Psychological, Motivational\n& Attitudinal Barriers",
+    "چالش‌های پویایی گروهی و تعاملات اجتماعی": "Group Dynamics & Social\nInteraction Challenges",
 }
+
+
 
 def get_short_label(st):
     if st in SUB_LABELS_EN:
@@ -459,9 +462,8 @@ for i in range(n):
 # is placed separately, below the figure, to visually separate the
 # "breakdown point" from the layered structure.
 pos = {}
-
-sub_ring_offset = 1.1  # distance of the sub-theme ring from its own layer's ring
 layer_radius = {1: 1.6, 2: 3.4, 3: 5.2, 4: 7.0, 5: 8.8}
+sub_ring_offset = 1.1  # distance of the sub-theme ring from its own layer's ring
 
 pos["L1"] = (0.0, 0.0)  # central core, exactly at the center
 for lyr in range(2, 6):
