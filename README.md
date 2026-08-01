@@ -45,7 +45,7 @@ All code is designed to run in **Google Colab** or a standard Jupyter notebook e
 
 ## Usage
 
-### 1. Prepare the Input File
+### 1. Prepare the Input File (concepts0.docx)
 
 You need a Microsoft Word (`.docx`) file containing **two tables** in the exact order:
 
@@ -57,7 +57,7 @@ You need a Microsoft Word (`.docx`) file containing **two tables** in the exact 
 The file name used in the code is `concepts.docx`.  
 **Important:** The main theme names **must** exactly match the keywords used in the layer mapping (see code). The provided table structure must follow the reference version (both tables present, no extra header rows).
 
-### 2. Run the Notebook
+### 2. Run the Notebook(codes.ipynb)
 
 Execute the cells in order. In Colab, the first cell will install dependencies; then you will upload the Word document.
 
