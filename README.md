@@ -20,7 +20,7 @@ All results—tables and publication‑ready figures (600 dpi PNG + vector PDF)�
 ## Authors
 
 - **** — *First author* — Meta‑synthesis analysis & data preparation  
-  [ORCID: 0009‑0002‑5611‑8238](https://orcid.org/xxx)
+  [ORCID: xxx](https://orcid.org/xxx)
 
 - **** — *Corresponding author* — AI Researcher — FCM analysis & code implementation  
   [Personal website](https://xxx)
