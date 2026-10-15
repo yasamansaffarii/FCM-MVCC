@@ -3,10 +3,7 @@
 
 ## Overview
 
-This repository contains the complete implementation of the **Fuzzy Cognitive Map (FCM)** and scenario analysis framework described in the paper:
 
-> **“A Multilayer Vulnerability and Cascading Collapse (MVCC) Model in Educational Robotics (STEM) Interventions”**  
-> by Mohammad Pedrami, Yasaman Saffari, et al.
 
 The model combines:
 
@@ -22,11 +19,11 @@ All results—tables and publication‑ready figures (600 dpi PNG + vector PDF)�
 
 ## Authors
 
-- **Mohammad Pedrami** — *First author* — Meta‑synthesis analysis & data preparation  
-  [ORCID: 0009‑0002‑5611‑8238](https://orcid.org/0009-0002-5611-8238)
+- **** — *First author* — Meta‑synthesis analysis & data preparation  
+  [ORCID: 0009‑0002‑5611‑8238](https://orcid.org/xxx)
 
-- **Dr. Yasaman Saffari** — *Corresponding author* — AI Researcher — FCM analysis & code implementation  
-  [Personal website](https://yasamansaffarii.github.io)
+- **** — *Corresponding author* — AI Researcher — FCM analysis & code implementation  
+  [Personal website](https://xxx)
 
 ---
 
@@ -141,8 +138,8 @@ If you use this code in your research, please cite the original paper (once publ
 
 ```bibtex
 @article{PedramiSaffariMVCC,
-  author = {Mohammad Pedrami and Yasaman Saffari},
-  title  = {A Multilayer Vulnerability and Cascading Collapse (MVCC) Model in Educational Robotics (STEM) Interventions},
+  author = {},
+  title  = {},
   journal= {},
   year   = {2026}
 }
@@ -152,6 +149,6 @@ If you use this code in your research, please cite the original paper (once publ
 
 ## Authors
 
-Mohammad Pedrami — First-author — Meta-synthesis analysis & data preparing ORCID: https://orcid.org/0009-0002-5611-8238
-Dr. Yasaman Saffari — Corresponding-author — Artificial Intelligence Researcher — FCM analysis & code implementation Personal website: https://yasamansaffarii.github.io
+— First-author — Meta-synthesis analysis & data preparing ORCID: https://orcid.org/xxxx
+ — Corresponding-author — Artificial Intelligence Researcher — FCM analysis & code implementation Personal website: xxx
 Iran
